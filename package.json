@@ -1,6 +1,7 @@
 {
   "name": "weather-demonstration",
   "version": "0.1.0",
+  "homepage": "https://anhbien.github.io/weather",
   "private": true,
   "dependencies": {
     "@emotion/css": "^11.10.5",

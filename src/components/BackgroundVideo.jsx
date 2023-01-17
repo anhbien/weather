@@ -33,7 +33,7 @@ function BackgroundVideo(props) {
     else if (condition.toLowerCase().includes('thunder'))
         src = "660197021"
     else
-        src = "344831830"
+        src = "344831830" //sun
     return (
         <div className={container}>
             <iframe src={`https://player.vimeo.com/video/${src}?title=0&autoplay=1&loop=1&background=1`} allow="autoplay; fullscreen" title="Background Video" frameBorder={0} className={videoStyle} ></iframe>
