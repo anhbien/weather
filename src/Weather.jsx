@@ -3,9 +3,9 @@ import { css } from '@emotion/css'
 import BackgroundVideo from './components/BackgroundVideo'
 
 const content = css`
-    position: fixed;
-    right: 0;
-    bottom: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     min-width: 100%; 
     min-height: 100%;
     color: white;
@@ -21,13 +21,21 @@ const boxStyle = css`
     padding: 2rem;
     text-align: center;
     margin-bottom: 1em;
+    margin-top: 1em;
     max-width: 1280px;
 `
 
-const forecastStyle = css`
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
+const forecastGridStyle = css`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 120px);
+    gap: 1em;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+`
+
+const forcastGridItemStyle = css`
+    grid-column-end: span 1;
 `
 
 // const inputStyle = css`
@@ -104,14 +112,15 @@ function Weather() {
                     <p>{weatherData[0].detailedForecast}</p>
                 </div>
                 <div className={boxStyle}>
-                    <div className={forecastStyle}>
+                    <div className={forecastGridStyle}>
                         {
                             weatherData.map((period, index) => {
                                 if (index !== 0 && index % 2 === 0) {
                                     return (
-                                        <div className={css`padding: 10px; width: 16.666%;`} key={index}>
+                                        <div className={forcastGridItemStyle} key={index}>
                                             <h3>{period.name}</h3>
                                             <h4>{period.temperature}&#176;{period.temperatureUnit}</h4>
+                                            <p>&#127788;{period.windSpeed}</p>
                                             <img alt={period.shortForecast} src={period.icon} />
                                             <p>{period.shortForecast}</p>
                                         </div>
